@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+#pantalla {
+  background: url("http://www.italia.it/fileadmin/src/img/cluster_gallery/mangiare_bere/la_pizza/_0004_pizza_focaccia.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+
