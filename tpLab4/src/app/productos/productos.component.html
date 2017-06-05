@@ -1,3 +1,20 @@
-<p>
-  productos works!
-</p>
+<div>
+<h2 style="text-align:center;">LISTA DE PRODUCTOS</h2>
+			  <table class="table table-hover" align="center">  
+        <thead>
+				<tr>
+					  <th>ID</th>
+				    <th>NOMBRE</th>
+					  <th>PRECIO</th>
+						<th>FOTOS</th>
+				</tr>
+        </thead>
+          <tr *ngFor="let datos of datosProductos">
+					<td>{{datos.idProd}}</td>
+					<td>{{datos.nombre}}</td>
+					<td>${{datos.precio}}</td>
+					<td><button type="button" class="btn btn-success" (click)="openModal()" >VER FOTOS</button></td>
+				</tr>
+            </table>
+</div>
+

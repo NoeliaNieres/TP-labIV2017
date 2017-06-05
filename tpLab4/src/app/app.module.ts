@@ -9,9 +9,13 @@ import { ProductosComponent } from './productos/productos.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { Routes, RouterModule} from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 //animacion
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+//servicios
+import { ServiciosService } from './servicios/servicios.service';
 
 export const appRoutes: Routes = [
     { 
@@ -44,12 +48,13 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [ServiciosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,Router } from '@angular/router';
+import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor() { }
+  datosProductos: Array<any>;
 
+  constructor(private router: Router, private route: ActivatedRoute,public datos: ServiciosService) {
+      this.datosProductos = new Array();
+  }
+  Productoslista()
+  {
+      this.datos.traerAllProducts().subscribe(
+      data => {
+         this.datosProductos = data.productos;
+         console.log(data);
+      },
+      error => console.log(error)
+    )
+  }
+  
   ngOnInit() {
+    this.Productoslista();
   }
 
 }
