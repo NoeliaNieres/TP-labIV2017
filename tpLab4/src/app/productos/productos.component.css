@@ -4,4 +4,8 @@
     width: 80%;
     height: 20%;
     overflow-x: hidden;
+    position: absolute;
+}
+#tbProductos{
+    margin-top: 100px;
 }

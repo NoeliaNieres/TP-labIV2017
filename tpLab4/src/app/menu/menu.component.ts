@@ -5,7 +5,6 @@ import { Router} from '@angular/router';
   selector: 'app-menu',
   template: `
               <ul>
-                 <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Home</a></li>
                  <li class="nav-item"><a class="nav-link" routerLink="login" routerLinkActive="active">Login</a></li>
                   <li class="nav-item"><a class="nav-link" routerLink="productos" routerLinkActive="active">Productos</a></li>
               </ul>              
