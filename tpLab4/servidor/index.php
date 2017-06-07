@@ -81,8 +81,8 @@ $app->add(function($request, $response, $next) {
 		//Modifico el producto
 	
 		//Traigo todos los productos
-		require_once "servidor/Productos.php";
-		$productos = Producto::TraerUnProductoPorId($id);
+		require_once "./Productos.php";
+		$productos = Producto::TraerUnProducto($id);
 		$respuesta["productos"] = $productos;
 		//Escribo la respuesta en el body del response y lo retorno
 		$response->getBody()->write(json_encode($respuesta));
@@ -113,8 +113,8 @@ $app->add(function($request, $response, $next) {
 		$producto = json_decode($request->getBody()); // $producto->nombre = "Mika" 
 		//Modifico el producto
 		try{
-			require_once "servidor/producto.php";
-			$respuesta["cantidad"] = Producto::Modificar($producto);
+			require_once "./Productos.php";
+			$respuesta["cantidad"] = Producto::ModificarProducto($producto);
 			$respuesta["mensaje"] = "Se modificaron ".$respuesta["cantidad"]." productos";
 		}
 		catch (Exception $e){

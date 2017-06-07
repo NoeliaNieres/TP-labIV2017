@@ -9,10 +9,14 @@ import { ServiciosService } from '../servicios/servicios.service';
 })
 export class ProductosComponent implements OnInit {
 
-  datosProductos: Array<any>;
+ datosProductos: Array<any>;
+id: number = 0; 
+datosMostrar: any = {};
+data: any= {};
 
   constructor(private router: Router, private route: ActivatedRoute,public datos: ServiciosService) {
       this.datosProductos = new Array();
+      
   }
   Productoslista()
   {
@@ -28,5 +32,33 @@ export class ProductosComponent implements OnInit {
   ngOnInit() {
     this.Productoslista();
   }
-
+  traerProducto($id)
+  {
+    console.log($id);
+      this.datos.traerPorId($id).subscribe(
+      data => {
+        this.datosMostrar = data.productos;
+        console.log(data);
+        console.log(this.datosMostrar);
+      },
+      error => console.log(error)
+    )
+  }
+  modificarProducto()
+  {
+    console.log(this.datosMostrar);
+      this.datos.modificar(this.datosMostrar).subscribe(
+      data => {
+        console.log(data);
+        this.data = data;
+        this.Productoslista();
+      },
+      error => console.log(error)
+    )
+  }
+}
+export class producto {
+    id: number;
+	  nombre : string;
+    precio: number;
 }

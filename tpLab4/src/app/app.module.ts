@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 //servicios
 import { ServiciosService } from './servicios/servicios.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const appRoutes: Routes = [
     { 
@@ -53,6 +54,8 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
