@@ -56,6 +56,17 @@ data: any= {};
       error => console.log(error)
     )
   }
+  eliminarProducto($id)
+  {
+    console.log($id);
+      this.datos.eliminar($id).subscribe(
+      data => {
+        console.log(data);
+        this.Productoslista();
+      },
+      error => console.log(error)
+    )
+  }
 }
 export class producto {
     id: number;

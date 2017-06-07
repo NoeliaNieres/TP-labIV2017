@@ -11,6 +11,7 @@
 					  <th>PRECIO</th>
 						<th>FOTOS</th>
 						<th>MODIFICAR</th>
+            <th>ELIMINAR</th>
 				</tr>
         </thead>
           <tr *ngFor="let datos of datosProductos">
@@ -19,7 +20,8 @@
 					<td>${{datos.precio}}</td>
 					<td><button type="button" class="btn btn-success" >VER FOTOS</button></td>
 					<td><button type="button" class="btn btn-success" onclick="document.getElementById('id').style.display='block'" (click)="traerProducto(datos.idProd)" >MODIFICAR</button></td>
-				</tr>
+          <td><button type="button" class="btn btn-success" (click)="eliminarProducto(datos.idProd)">ELIMINAR</button></td>
+        </tr>
             </table>
 </div>
 <!-- VER PRODUCTO POR ID Y MODIFICAR
