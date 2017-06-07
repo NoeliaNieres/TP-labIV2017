@@ -24,6 +24,9 @@ export class ServiciosService {
     eliminar(id: number) {
         return this.http.delete(this.url +'/productos/' + id, this.jwt()).map((response: Response) => response.json());
     }
+    agregar(product: producto) {
+        return this.http.post(this.url +'/productos', product, this.jwt()).map((response: Response) => response.json());
+    }
 
      private jwt() {
         // create authorization header with jwt token

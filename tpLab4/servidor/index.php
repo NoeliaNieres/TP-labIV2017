@@ -48,11 +48,11 @@ $app->add(function($request, $response, $next) {
  //Alta de producto
 	$app->post("/productos", function($request, $response, $args){
 		
-		$persona = json_decode($request->getBody()); 
+		$producto = json_decode($request->getBody()); 
 	
 		try{
-			require_once "servidor/Productos.php";
-			$respuesta["idAgregado"] = Producto::Agregar($producto);
+			require_once "./Productos.php";
+			$respuesta["idAgregado"] = Producto::InsertarProducto($producto);
 			$respuesta["mensaje"] = "Se agregó el producto #".$respuesta["idAgregado"];
 		}
 		catch (Exception $e){
@@ -95,8 +95,8 @@ $app->add(function($request, $response, $next) {
 		$id = json_decode($args["id"]);
 		//Elimino el producto
 		try{
-			require_once "servidor/producto.php";
-			$respuesta["cantidad"] = Producto::Eliminar($id);
+			require_once "./Productos.php";
+			$respuesta["cantidad"] = Producto::BorrarProducto($id);
 			$respuesta["mensaje"] = "Se eliminaron ".$respuesta["cantidad"]." productos";
 		}
 		catch (Exception $e){

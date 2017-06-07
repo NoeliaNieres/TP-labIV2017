@@ -67,6 +67,18 @@ data: any= {};
       error => console.log(error)
     )
   }
+    agregarProducto()
+  {
+    console.log(this.datosMostrar);
+      this.datos.agregar(this.datosMostrar).subscribe(
+      data => {
+        console.log(data);
+        this.data = data;
+        this.Productoslista();
+      },
+      error => console.log(error)
+    )
+  }
 }
 export class producto {
     id: number;

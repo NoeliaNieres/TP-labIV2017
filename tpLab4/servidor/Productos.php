@@ -155,13 +155,14 @@ class Producto
 	public static function InsertarProducto($producto)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into productos (nombre,precio,foto1,foto2,foto3) values(:nombre,:precio,:foto1,:foto2,:foto3)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into productos (nombre,precio) values(:nombre,:precio)");
+		//$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into productos (nombre,precio,foto1,foto2,foto3) values(:nombre,:precio,:foto1,:foto2,:foto3)");
 		
 		$consulta->bindValue(':nombre', $producto->nombre, PDO::PARAM_STR);
 		$consulta->bindValue(':precio', $producto->precio, PDO::PARAM_INT);
-		$consulta->bindValue(':foto1', $producto->foto1, PDO::PARAM_STR);
-		$consulta->bindValue(':foto2', $producto->foto2, PDO::PARAM_STR);
-		$consulta->bindValue(':foto3', $producto->foto3, PDO::PARAM_STR);
+		//$consulta->bindValue(':foto1', $producto->foto1, PDO::PARAM_STR);
+		//$consulta->bindValue(':foto2', $producto->foto2, PDO::PARAM_STR);
+		//$consulta->bindValue(':foto3', $producto->foto3, PDO::PARAM_STR);
 		
 		$consulta->execute();		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
