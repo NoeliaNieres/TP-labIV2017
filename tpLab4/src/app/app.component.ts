@@ -1,4 +1,5 @@
 import {Component, trigger, state, style, transition, animate} from '@angular/core';
+import { AuthProvider } from './servicios/auth';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +22,21 @@ export class AppComponent {
   title = 'app works!';
 
   menuState:string = 'out';
+  public user: string;
 
   toggleMenu() {
     // 1-line if statement that toggles the value:
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
+  }
+   constructor(private auth: AuthProvider) {
+   
+    this.auth.getUserData().subscribe(data => {
+      this.user=data.name;
+      //console.log(this.user);  
+    });
+  }
+  logout(){
+    console.log("llego");
+    this.auth.logout();
   }
 }

@@ -5,7 +5,8 @@ import { Router} from '@angular/router';
   selector: 'app-menu',
   template: `
               <ul>
-                 <li class="nav-item"><a class="nav-link" routerLink="login" routerLinkActive="active">Login</a></li>
+                 <li class="nav-item"><a class="nav-link" routerLink="login" onclick="document.getElementById('id01').style.display='block'" routerLinkActive="active">Login</a></li>
+                 <li class="nav-item"><a class="nav-link" routerLink="registro" onclick="document.getElementById('id02').style.display='block'" routerLinkActive="active">Registro</a></li>
                   <li class="nav-item"><a class="nav-link" routerLink="productos" routerLinkActive="active">Productos</a></li>
               </ul>              
   `,

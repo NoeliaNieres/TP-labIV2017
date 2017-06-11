@@ -8,14 +8,3 @@
 .modal-header, .modal-body {
     padding: 40px 50px;
 }
-  .error {
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
-    background-color: rgb(217, 74, 87);
-    
-  }
-  .p {
-      color: white;
-      font-weight: bold;
-    }

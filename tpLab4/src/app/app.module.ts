@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProductosComponent } from './productos/productos.component';
 import { MenuComponent } from './menu/menu.component';
+import { RegistroComponent } from './registro/registro.component';
 
 import { Routes, RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -17,6 +18,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //servicios
 import { ServiciosService } from './servicios/servicios.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataProvider } from './servicios/data';
+import { AuthProvider } from './servicios/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 export const appRoutes: Routes = [
     { 
@@ -37,6 +44,10 @@ export const appRoutes: Routes = [
       component: ProductosComponent 
     },
     { 
+      path: 'registro', 
+      component: RegistroComponent 
+    },
+    { 
       path: '**', 
       redirectTo: '' 
     }
@@ -49,7 +60,8 @@ export const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     ProductosComponent,
-    MenuComponent
+    MenuComponent,
+    RegistroComponent 
   ],
   imports: [
     BrowserModule,
@@ -57,14 +69,17 @@ export const appRoutes: Routes = [
     FormsModule, 
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   exports: [
     RouterModule
   ],
-  providers: [ServiciosService],
+  providers: [ServiciosService,DataProvider, AuthProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export const routingComponents = [HomeComponent, LoginComponent,ProductosComponent];
+export const routingComponents = [HomeComponent, LoginComponent,ProductosComponent,RegistroComponent ];

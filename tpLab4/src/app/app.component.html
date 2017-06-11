@@ -16,7 +16,11 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href="#myPage">HOME</a></li>
         <li><a href="#contact">CONTACTO</a></li>
+        <li><a href="#">Bienvenida/o {{user}}</a></li>
       </ul>
+      <button style="float: right;display: block;" type="button"ns class="btn btn-default btn-sm" (click)="logout()">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
     </div>
   </div>
 </nav>
