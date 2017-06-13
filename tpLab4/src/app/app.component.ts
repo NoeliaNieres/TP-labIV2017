@@ -38,5 +38,6 @@ export class AppComponent {
   logout(){
     console.log("llego");
     this.auth.logout();
+     this.user = null;
   }
 }

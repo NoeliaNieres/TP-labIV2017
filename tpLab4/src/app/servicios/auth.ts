@@ -78,6 +78,10 @@ export class AuthProvider {
 }
      
   logout() {
-    this.af.auth.signOut();
+    firebase.auth().signOut().then(function() {
+      console.log("funciona");
+      }, function(error) {
+	    console.log(error); 
+     });
   }
 }

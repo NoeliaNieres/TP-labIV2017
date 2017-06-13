@@ -1,0 +1,75 @@
+* {
+    margin: 0px;
+    padding: 0px;   
+}
+ 
+body {
+    background-color:#616161;
+}
+ 
+h2 {
+    font-weight: bolder;
+    font-size:100%;
+}
+ 
+ul {
+    overflow: none;
+    position: relative;
+    top: 80px;
+    left: 80px;    
+    width: 70em;
+}
+ 
+ul li {
+    list-style: none;
+    float: right;
+    margin: 15px;
+}
+ 
+ul li a {
+    background-color: #fcffa3;
+    color: black;
+    display: block;
+    height: 15em;
+    padding: 2em;
+    text-decoration: none;   
+    width: 15em; 
+}
+ul li a{
+  -webkit-transform:rotate(-6deg);
+  -o-transform:rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+}
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+/*fondo de color azul*/
+ul li a:hover, ul li a:focus {
+    background-color: #6CF;
+    -moz-box-shadow: 10px 10px 7px rgba(0,0,0,.7); 
+      -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7); 
+      box-shadow: 10px 10px 7px rgba(0,0,0,.7); 
+    -webkit-transform: scale(1.25); 
+    -moz-transform: scale(1.25); 
+    -o-transform: scale(1.25); 
+    position: relative; 
+    z-index: 5; 
+}

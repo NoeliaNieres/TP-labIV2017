@@ -1,0 +1,17 @@
+ <body>
+
+
+<ul *ngFor="let datos of datosPedidos">
+  <li>
+    <a>
+      <h2>Pedido {{datos.idPed}}</h2>
+			<p>Producto {{datos.idProd}}</p>
+      <p>Cliente {{datos.idCliente}}</p>
+			<p>Monto ${{datos.monto}}</p>
+      <p>Cantidad pedida {{datos.cantPedida}}</p>
+
+    </a>
+  </li>
+
+</ul>
+</body>
