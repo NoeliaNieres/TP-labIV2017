@@ -125,5 +125,28 @@ $app->add(function($request, $response, $next) {
 		$response->getBody()->write(json_encode($respuesta));
 		return $response;
 	});
+#PEDIDOS
 
+	 //Tomar todos los pedidos
+	$app->get("/pedidos", function($request, $response, $args){
+
+		require_once "./Pedido.php";
+		$pedidos = Pedido::TraerTodosLosPedidos();		
+		$respuesta["pedidos"] = $pedidos;
+		//Escribo la respuesta en el body del response y lo retorno
+		$response->getBody()->write(json_encode($respuesta));
+		return $response;		
+	});
+#OFERTAS
+
+	 //Tomar todos los ofertas
+	$app->get("/ofertas", function($request, $response, $args){
+
+		require_once "./Ofertas.php";
+		$ofertas = Oferta::TraerTodasLasOfertas();		
+		$respuesta["ofertas"] = $ofertas;
+		
+		$response->getBody()->write(json_encode($respuesta));
+		return $response;		
+	});
 $app->run();

@@ -26,6 +26,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { PedidosService } from './servicios/pedidos.service';
 import { PedidosListaComponent } from './pedidos-lista/pedidos-lista.component';
+import { OfertasService } from './servicios/ofertas.service';
+import { OfertasComponent } from './ofertas/ofertas.component';
 
 export const appRoutes: Routes = [
     { 
@@ -44,6 +46,10 @@ export const appRoutes: Routes = [
     { 
       path: 'productos', 
       component: ProductosComponent 
+    },
+    { 
+      path: 'ofertas', 
+      component: OfertasComponent
     },
     { 
       path: 'pedidoslista', 
@@ -68,7 +74,8 @@ export const appRoutes: Routes = [
     ProductosComponent,
     MenuComponent,
     RegistroComponent,
-    PedidosListaComponent 
+    PedidosListaComponent,
+    OfertasComponent 
   ],
   imports: [
     BrowserModule,
@@ -84,9 +91,9 @@ export const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [ServiciosService,DataProvider, AuthProvider,PedidosService],
+  providers: [ServiciosService,DataProvider, AuthProvider,PedidosService,OfertasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export const routingComponents = [HomeComponent, LoginComponent,ProductosComponent,RegistroComponent,PedidosListaComponent ];
+export const routingComponents = [HomeComponent, LoginComponent,ProductosComponent,RegistroComponent,PedidosListaComponent,OfertasComponent ];

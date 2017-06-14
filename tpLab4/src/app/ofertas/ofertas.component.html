@@ -1,0 +1,31 @@
+<body>
+  <div id="titulo">
+    <br>
+    <h3 style="margin-top:80px;" class="text-center">OFERTAS</h3>
+    <p class="text-center">Disfrute la variedad de nuestros productos.<br>Al mejor precio! </p>
+  </div>
+<div >
+  <div>
+      <ul *ngFor="let datos of datosOfertas">
+          <div class="row text-center">
+          <div class="col-sm-4">
+          <div class="thumbnail">
+            <span style="font-size: 40px;" class="label label-success label-as-badge">-${{datos.descuento}}</span>
+          <img src="assets/fotos/{{ datos.foto }}"  style="width:100; height: 200px;">
+          <p><strong>Oferta #{{datos.idOfer}}</strong></p>
+          <p>Producto {{datos.idProd}}</p>
+          <p>Hasta {{datos.fechaFin}}</p>
+          <p></p>
+          <button class="btn">Comprar</button>
+        </div>
+      </div>
+      </div>
+       
+      </ul>
+    
+					
+    </div>
+    </div>
+  
+    
+</body>
