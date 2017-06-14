@@ -22,7 +22,7 @@ ul {
  
 ul li {
     list-style: none;
-    float: right;
+    float: left;
     margin: 15px;
 }
  
