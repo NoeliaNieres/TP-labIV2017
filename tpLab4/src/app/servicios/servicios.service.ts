@@ -7,7 +7,7 @@ import { producto } from '../productos/productos.component';
 @Injectable()
 export class ServiciosService {
 
- url = 'http://localhost:8080';
+ url = 'https://pizzeria-nieres.000webhostapp.com/servidor/index.php';
 
     constructor(public http:Http) { }
 

@@ -37,7 +37,7 @@ $app->add(function($request, $response, $next) {
     $response = $next($request, $response);
 
 
-    return $response->withHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
+    return $response->withHeader('Access-Control-Allow-Origin', 'https://pizzeria-nieres.000webhostapp.com/')
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     ;

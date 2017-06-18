@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class PedidosService {
 
-    url = 'http://localhost:8080';
+    //url = 'http://localhost:8080';
+    url = 'https://pizzeria-nieres.000webhostapp.com/servidor/index.php';
 
     constructor(public http:Http) { }
 
