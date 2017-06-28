@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 
 @Component({
   selector: 'app-productos',
@@ -78,6 +79,16 @@ data: any= {};
       },
       error => console.log(error)
     )
+  }
+   exportarDatos()
+  {
+
+      this.datos.traerAllProducts().subscribe(
+      data => {
+         this.datosProductos = data.productos;
+         new Angular2Csv(data.productos, 'misDatos');
+      })
+        
   }
 }
 export class producto {

@@ -28,6 +28,8 @@ import { PedidosService } from './servicios/pedidos.service';
 import { PedidosListaComponent } from './pedidos-lista/pedidos-lista.component';
 import { OfertasService } from './servicios/ofertas.service';
 import { OfertasComponent } from './ofertas/ofertas.component';
+import { AgmCoreModule } from "angular2-google-maps/core";
+import { DirectionsMapDirective } from './googlr-map.directive';
 
 export const appRoutes: Routes = [
     { 
@@ -86,7 +88,12 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AgmCoreModule.forRoot({
+     		  apiKey: 'AIzaSyD1mJpwOsc9rFmBdkqaDVMXAB-QRqPTOUs',
+     		 	libraries: ["places"]
+    			})
+
   ],
   exports: [
     RouterModule
