@@ -30,6 +30,8 @@ import { OfertasService } from './servicios/ofertas.service';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { AgmCoreModule } from "angular2-google-maps/core";
 import { DirectionsMapDirective } from './googlr-map.directive';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosService } from './servicios/usuarios.service';
 
 export const appRoutes: Routes = [
     { 
@@ -62,6 +64,10 @@ export const appRoutes: Routes = [
       component: RegistroComponent 
     },
     { 
+      path: 'usuarios', 
+      component: UsuariosComponent
+    },
+    { 
       path: '**', 
       redirectTo: '' 
     }
@@ -77,7 +83,8 @@ export const appRoutes: Routes = [
     MenuComponent,
     RegistroComponent,
     PedidosListaComponent,
-    OfertasComponent 
+    OfertasComponent,
+    UsuariosComponent 
   ],
   imports: [
     BrowserModule,
@@ -98,7 +105,7 @@ export const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [ServiciosService,DataProvider, AuthProvider,PedidosService,OfertasService],
+  providers: [ServiciosService,DataProvider, AuthProvider,PedidosService,OfertasService,UsuariosService,UsuariosComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

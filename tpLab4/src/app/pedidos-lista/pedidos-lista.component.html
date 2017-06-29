@@ -1,10 +1,15 @@
  <body>
-
-
+   <br><br><br><br>
+   <div  class="container text-center">
+<button id="buttons" class="btn btn-primary btn-lg" (click)="Valor(1)"> <span class="glyphicon glyphicon-th"></span> Sucursal #1 </button>
+<button id="buttons" class="btn btn-success btn-lg" (click)="Valor(2)"><span class="glyphicon glyphicon-th"></span> Sucursal #2 </button>
+<button id="buttons" class="btn btn-danger btn-lg" (click)="Valor(3)"><span class="glyphicon glyphicon-th"></span> Sucursal #3 </button>
+</div>
 <ul *ngFor="let datos of datosPedidos">
-  <li>
+  <li *ngIf="datos.idSuc == valor">
     <a>
       <h2>Pedido {{datos.idPed}}</h2>
+      <p>Sucursal {{datos.idSuc}}</p>
 			<p>Producto {{datos.idProd}}</p>
       <p>Cliente {{datos.idCliente}}</p>
 			<p>Monto ${{datos.monto}}</p>

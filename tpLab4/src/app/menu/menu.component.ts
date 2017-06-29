@@ -10,6 +10,7 @@ import { Router} from '@angular/router';
                   <li class="nav-item"><a class="nav-link" routerLink="productos" routerLinkActive="active">Productos</a></li>
                   <li class="nav-item"><a class="nav-link" routerLink="pedidoslista" routerLinkActive="active">Lista de pedidos</a></li>
                    <li class="nav-item"><a class="nav-link" routerLink="ofertas" routerLinkActive="active">Ofertas</a></li>
+                   <li class="nav-item"><a class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a></li>
               </ul>              
   `,
   styleUrls: ['./menu.component.css'],

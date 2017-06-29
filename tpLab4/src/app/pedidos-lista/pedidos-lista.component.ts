@@ -8,6 +8,7 @@ import { PedidosService } from '../servicios/pedidos.service';
 })
 export class PedidosListaComponent implements OnInit {
 datosPedidos: Array<any>;
+valor : number = 0;
 
   constructor(public datos: PedidosService) {
       this.datosPedidos = new Array();
@@ -26,5 +27,9 @@ datosPedidos: Array<any>;
   
   ngOnInit() {
     this.Pedidoslista();
+  }
+  Valor(numero){
+
+    this.valor= numero;
   }
 }

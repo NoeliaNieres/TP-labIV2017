@@ -149,4 +149,16 @@ $app->add(function($request, $response, $next) {
 		$response->getBody()->write(json_encode($respuesta));
 		return $response;		
 	});
+	#USUARIOS
+
+	 //Tomar todos los usuarios
+	$app->get("/usuarios", function($request, $response, $args){
+
+		require_once "./Usuarios.php";
+		$usuarios = Usuario::TraerTodosLosUsuarios();		
+		$respuesta["usuarios"] = $usuarios;
+		//Escribo la respuesta en el body del response y lo retorno
+		$response->getBody()->write(json_encode($respuesta));
+		return $response;		
+	});
 $app->run();

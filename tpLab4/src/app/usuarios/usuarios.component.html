@@ -1,0 +1,30 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<h2 style="text-align:center;margin-top: 100px;">LISTA DE USUARIOS</h2>
+			  <table class="table table-hover" align="center">  
+        <thead>
+				<tr>
+					  <th>ID</th>
+				    <th>NOMBRE</th>
+				    <th>EMAIL</th>
+					  <th>CARGO</th>
+				   	<th>ESTADO</th>
+				   	
+				</tr>
+        </thead>
+          <tr *ngFor="let datos of datosUsuarios">
+					<td>{{datos.idUsu}}</td>
+					<td>{{datos.nombre}}</td>
+					<td>{{datos.email}}</td>
+          <td>{{datos.cargo}}</td>
+          <td>
+						<p *ngIf="(user != 'encargado@hotmail.com' && datos.habilitado == 0)">DESHABILITADO</p>
+						<p *ngIf="(user != 'encargado@hotmail.com' && datos.habilitado == 1) || (user == 'noe@hotmail.com')">HABILITADO</p>
+            
+						<button class="btn btn-disabled" *ngIf="(user == 'encargado@hotmail.com' && datos.habilitado == 0 && user != 'noe@hotmail.com')">DESHABILITADO</button>
+						<button class="btn btn-info" *ngIf="(user == 'encargado@hotmail.com' && datos.habilitado == 1 && user != 'noe@hotmail.com')">HABILITADO</button>
+					</td>
+        </tr>
+            </table>
