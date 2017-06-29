@@ -12,10 +12,10 @@ import {DataProvider} from './data';
 @Injectable()
 export class AuthProvider {
   
-  user: Observable<firebase.User>;
+ user: any;
   
   constructor(private af: AngularFireAuth, private data: DataProvider) {
-    this.user = af.authState;
+     this.user = firebase.auth().currentUser;
   }
 
   getUserData() {
@@ -25,6 +25,7 @@ export class AuthProvider {
           this.data.object('users/' + authData.uid).subscribe(userData => {
             console.log(userData);
             this.user = userData;
+            localStorage.setItem('useremail', authData.email);
             observer.next(userData);
           });
         } else {
@@ -78,10 +79,16 @@ export class AuthProvider {
 }
      
   logout() {
-    firebase.auth().signOut().then(function() {
+      firebase.auth().signOut().then(function() {
       console.log("funciona");
+       localStorage.removeItem('useremail');
       }, function(error) {
 	    console.log(error); 
      });
+    
   }
+  public isLoggedIn(): boolean {
+        let IsUserExists = localStorage.getItem('useremail') !== null ? true : false
+        return IsUserExists;
+    }
 }

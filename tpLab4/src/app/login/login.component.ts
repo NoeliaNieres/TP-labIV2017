@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthProvider } from './../servicios/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,8 @@ export class LoginComponent implements OnInit {
   error: any;
   form: any ={};
   value: number = 0; // Default is 0
-
-  constructor(private auth: AuthProvider) {
+  returnUrl: string;
+  constructor(private auth: AuthProvider,  private router: Router) {
     this.form = {
       email: '',
       password: ''
@@ -19,12 +20,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+       this.returnUrl = this.router['returnUrl'] || '/';
   }
     login() {
     
     this.auth.loginWithEmail(this.form).subscribe(
      data => {
-         
+         console.log("funciona login");
+          this.router.navigate([this.returnUrl]);
       },
       error => {
         console.log(error),

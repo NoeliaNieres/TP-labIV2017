@@ -5,24 +5,27 @@ import { Router} from '@angular/router';
   selector: 'app-menu',
   template: `
               <ul>
-                 <li class="nav-item"><a class="nav-link" routerLink="login" onclick="document.getElementById('id01').style.display='block'" routerLinkActive="active">Login</a></li>
-                 <li class="nav-item"><a class="nav-link" routerLink="registro" onclick="document.getElementById('id02').style.display='block'" routerLinkActive="active">Registro</a></li>
-                  <li class="nav-item"><a class="nav-link" routerLink="productos" routerLinkActive="active">Productos</a></li>
-                  <li class="nav-item"><a class="nav-link" routerLink="pedidoslista" routerLinkActive="active">Lista de pedidos</a></li>
-                   <li class="nav-item"><a class="nav-link" routerLink="ofertas" routerLinkActive="active">Ofertas</a></li>
-                   <li class="nav-item"><a class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a></li>
+                 
+                 <li class="nav-item"><a class="nav-link" routerLink="inicio" routerLinkActive="active">Iniciar sesión</a></li>
+                  <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="productos" routerLinkActive="active">Productos</a></li>
+                  <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="pedidoslista" routerLinkActive="active">Lista de pedidos</a></li>
+                   <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="ofertas" routerLinkActive="active">Ofertas</a></li>
+                    <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a></li>
               </ul>              
   `,
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-
+user: any; 
 
   constructor(private router: Router, private route: ActivatedRoute) {
-
+    this.user = localStorage.getItem('useremail');
+     console.log(this.user);
   }
 
   ngOnInit() {
+    this.user = localStorage.getItem('useremail');
+     console.log(this.user);
   }
 
 }

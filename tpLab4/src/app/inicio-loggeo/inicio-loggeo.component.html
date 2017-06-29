@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<br>  <br><br><br><br>
+<body>
+ <div class="formContainer">
+            <h1>Bienvenido a Pizzerias Argenta S.R.L.</h1>
+            <h2 *ngIf="!user">Ingresa en el sistema o registrate para poder ver el contenido de nuestra página.</h2>
+            <h2 *ngIf="user">Ya estas logueado! Utiliza el menú lateral para navegar por la web.</h2>
+        </div>
+
+  <a href="login" >Login</a>
+
+ <a href="registro" >Registro</a>
+
+
+</body>
+</html>

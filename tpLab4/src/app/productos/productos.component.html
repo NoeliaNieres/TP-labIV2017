@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div id="tbProductos">
-  <button type="button" class="btn btn-success" (click)="exportarDatos()"><span class="glyphicon glyphicon-list-alt"></span> EXPORTAR </button>
+  <button type="submit" (click)="exportarDatos()" class="btn btn-block" >EXPORTAR </button>
   <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" onclick="document.getElementById('id1').style.display='block'">Agregar Producto</a></li>
 </ul>
@@ -14,17 +14,19 @@
 				    <th>NOMBRE</th>
 					  <th>PRECIO</th>
 						<th>FOTOS</th>
-						<th>MODIFICAR</th>
-            <th>ELIMINAR</th>
+						<th *ngIf="user =='encargado@hotmail.com'">ACCIÓN</th>
 				</tr>
         </thead>
           <tr *ngFor="let datos of datosProductos">
 					<td>{{datos.idProd}}</td>
 					<td>{{datos.nombre}}</td>
 					<td>${{datos.precio}}</td>
-					<td><button type="button" class="btn btn-success" >VER FOTOS</button></td>
-					<td><button type="button" class="btn btn-success" onclick="document.getElementById('id').style.display='block'" (click)="traerProducto(datos.idProd)" >MODIFICAR</button></td>
-          <td><button type="button" class="btn btn-success" (click)="eliminarProducto(datos.idProd)">ELIMINAR</button></td>
+					<td><button class="btn btn-info" >VER FOTOS</button></td>
+					<td *ngIf="user=='encargado@hotmail.com'">
+						<button class="btn btn-success" onclick="document.getElementById('id').style.display='block'" (click)="traerProducto(datos.idProd)">MODIFICAR</button>
+             <button *ngIf="user=='encargado@hotmail.com'" type="button" class="btn btn-success"  (click)="eliminarProducto(datos.idProd)">ELIMINAR</button>
+					</td>
+         
         </tr>
             </table>
 </div>

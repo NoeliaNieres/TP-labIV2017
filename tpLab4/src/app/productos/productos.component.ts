@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
+import { AuthProvider } from './../servicios/auth';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 
 @Component({
@@ -9,15 +10,16 @@ import { Angular2Csv } from 'angular2-csv/Angular2-csv';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-
- datosProductos: Array<any>;
+datosProductos: Array<any>;
 id: number = 0; 
 datosMostrar: any = {};
 data: any= {};
+user: any; 
 
-  constructor(private router: Router, private route: ActivatedRoute,public datos: ServiciosService) {
+  constructor(private router: Router, private route: ActivatedRoute,public datos: ServiciosService,private auth: AuthProvider) {
       this.datosProductos = new Array();
-      
+     this.user = localStorage.getItem('useremail');
+     console.log(this.user);
   }
   Productoslista()
   {
@@ -29,7 +31,16 @@ data: any= {};
       error => console.log(error)
     )
   }
-  
+  exportarDatos()
+  {
+
+      this.datos.traerAllProducts().subscribe(
+      data => {
+         this.datosProductos = data.productos;
+         new Angular2Csv(data.productos, 'misDatos');
+      })
+        
+  }
   ngOnInit() {
     this.Productoslista();
   }
@@ -68,7 +79,7 @@ data: any= {};
       error => console.log(error)
     )
   }
-    agregarProducto()
+  agregarProducto()
   {
     console.log(this.datosMostrar);
       this.datos.agregar(this.datosMostrar).subscribe(
@@ -80,19 +91,10 @@ data: any= {};
       error => console.log(error)
     )
   }
-   exportarDatos()
-  {
-
-      this.datos.traerAllProducts().subscribe(
-      data => {
-         this.datosProductos = data.productos;
-         new Angular2Csv(data.productos, 'misDatos');
-      })
-        
-  }
 }
 export class producto {
     id: number;
 	  nombre : string;
     precio: number;
+    
 }

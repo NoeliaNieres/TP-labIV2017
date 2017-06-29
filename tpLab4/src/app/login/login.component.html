@@ -1,13 +1,14 @@
-<p>
-  login works!
-</p>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
+  <br><br><br><br>
+ <h2>Modal Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div class="w3-container">
   
@@ -46,6 +47,17 @@
   </div>
 </div>
       
-      
+      <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </body>
 </html>
