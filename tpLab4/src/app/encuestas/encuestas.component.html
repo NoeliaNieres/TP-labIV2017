@@ -1,0 +1,27 @@
+<br><br><br><br><br>
+<h2><b>Coloque la encuesta que desea ver</b></h2>
+<input type="text" [(ngModel)]= "number" />
+<p> {{ number}} </p> 
+
+<div style="width:100%;" align=center *ngFor="let datos of miEncuesta">
+<div *ngIf="datos.idEnc == number">
+	<h2><b>ENCUESTA DE SATISFACCIÓN</b></h2>
+	
+	<h3>Calidad del Producto: </h3>
+	<rating  [max]="5" [readonly]="true"  name="valorProducto" [(ngModel)]="datos.valorProducto"></rating><br><br>
+	<h3>Calidad de Atención:</h3>
+	<rating  [max]="5" [readonly]="true" name="valorAtencion" [(ngModel)]="datos.valorAtencion"></rating><br><br>
+	<h3>Tiempo de Delivery:</h3>
+	<rating [max]="5" [readonly]="true" name="valorDemora" [(ngModel)]="datos.valorDemora" ></rating><br><br>
+
+	<h3 *ngIf="datos.comentario != 'sin comentario'">Comentario o Sugerencia: (máx. 300 caracteres)</h3>
+	<p *ngIf="datos.comentario != 'sin comentario'">{{datos.comentario}}</p>
+
+
+   
+</div>
+
+</div>
+
+
+

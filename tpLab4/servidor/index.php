@@ -161,4 +161,16 @@ $app->add(function($request, $response, $next) {
 		$response->getBody()->write(json_encode($respuesta));
 		return $response;		
 	});
+	#ENCUESTAS
+
+	 //Tomar todos las encuestas
+	$app->get("/encuestas", function($request, $response, $args){
+
+		require_once "./Encuesta.php";
+		$encuesta = Encuesta::TraerTodasLasEncuestas();		
+		$respuesta["encuesta"] = $encuesta;
+		//Escribo la respuesta en el body del response y lo retorno
+		$response->getBody()->write(json_encode($respuesta));
+		return $response;		
+	});
 $app->run();

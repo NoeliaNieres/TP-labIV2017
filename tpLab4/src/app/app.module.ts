@@ -34,6 +34,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosService } from './servicios/usuarios.service';
 import { InicioLoggeoComponent } from './inicio-loggeo/inicio-loggeo.component';
 import { LocalesComponent } from './locales/locales.component';
+import { EncuestasComponent } from './encuestas/encuestas.component';
+import { AuthService } from './servicios/auth.service';
+import { RatingModule } from "ng2-rating";
 
 export const appRoutes: Routes = [
     { 
@@ -78,6 +81,10 @@ export const appRoutes: Routes = [
       component: LocalesComponent
     },
     { 
+      path: 'encuestas', 
+      component: EncuestasComponent
+    },
+    { 
       path: '**', 
       redirectTo: '' 
     }
@@ -96,7 +103,8 @@ export const appRoutes: Routes = [
     OfertasComponent,
     UsuariosComponent,
     InicioLoggeoComponent,
-    LocalesComponent 
+    LocalesComponent,
+    EncuestasComponent 
   ],
   imports: [
     BrowserModule,
@@ -108,6 +116,7 @@ export const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    RatingModule,
     AgmCoreModule.forRoot({
      		  apiKey: 'AIzaSyD1mJpwOsc9rFmBdkqaDVMXAB-QRqPTOUs',
      		 	libraries: ["places"]
@@ -117,7 +126,7 @@ export const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [ServiciosService,DataProvider, AuthProvider,PedidosService,OfertasService,UsuariosService,UsuariosComponent],
+  providers: [ServiciosService,DataProvider, AuthProvider,AuthService,PedidosService,OfertasService,UsuariosService,UsuariosComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

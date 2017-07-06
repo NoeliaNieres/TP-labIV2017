@@ -11,6 +11,7 @@ import { Router} from '@angular/router';
                   <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="pedidoslista" routerLinkActive="active">Lista de pedidos</a></li>
                    <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="ofertas" routerLinkActive="active">Ofertas</a></li>
                     <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a></li>
+                    <li class="nav-item"><a *ngIf="user" class="nav-link" routerLink="encuestas" routerLinkActive="active">Encuestas</a></li>
               </ul>              
   `,
   styleUrls: ['./menu.component.css'],
