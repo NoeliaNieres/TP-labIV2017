@@ -15,6 +15,7 @@ id: number = 0;
 datosMostrar: any = {};
 data: any= {};
 user: any; 
+foto: any;
 
   constructor(private router: Router, private route: ActivatedRoute,public datos: ServiciosService,private auth: AuthProvider) {
       this.datosProductos = new Array();
@@ -55,6 +56,12 @@ user: any;
       },
       error => console.log(error)
     )
+  }
+    fotos($id)
+  {
+    //console.log($id);
+    this.foto = $id;
+      
   }
   modificarProducto()
   {

@@ -97,3 +97,60 @@
 
 </div>
 </div>
+<!-- FOTOS
+    ================================================== -->
+<h2>Modal Example</h2>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">PRODUCTOS</h4>
+        </div>
+           <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox" *ngFor="let datos of datosProductos">
+  
+        <div class="item active" *ngIf="datos.idProd == foto">
+          <img class="first-slide" src="/assets/fotos/{{datos.foto1}}" style="width:100%; height: 550px;" alt="First slide">
+          <div class="container">
+          </div>
+        </div>
+        <div class="item" *ngIf="datos.idProd == foto">
+          <img class="second-slide" src="/assets/fotos/{{datos.foto2}}"style="width:100%; height: 550px;"  alt="Second slide">
+          <div class="container">
+          </div>
+        </div>
+        <div class="item" *ngIf="datos.idProd == foto"> 
+          <img class="third-slide" src="/assets/fotos/{{datos.foto3}}" style="width:100%; height: 550px;" alt="Third slide">
+          <div class="container">
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
