@@ -31,18 +31,31 @@ export class AppComponent {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
   constructor(private auth: AuthProvider,private router: Router) {
-    this.auth.getUserData().subscribe(data => {
-      this.user=data.name;
-      //console.log(this.user);  
-    });
+    this.isLoggedIn();
+       this.user = localStorage.getItem('useremail');
+       console.log(this.user);
+    
     this.returnUrl = this.router['returnUrl'] || '/';
-  }
 
+    
+  }
+   refresh(): void {
+    window.location.reload();
+  }
+  public isLoggedIn() : boolean {
+      if(this.auth.isLoggedIn().valueOf() == true )
+      {
+         return true;
+      }
+      return false;
+      
+    }
   logout(){
     console.log("llego");
     this.auth.logout();
     this.user = null;
     console.log(this.user);
     this.router.navigate([this.returnUrl]);
+     this.refresh();
   }
 }

@@ -13,15 +13,14 @@
     </button>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-left" >
         <li><a href="#myPage">HOME</a></li>
         <li><a href="#contact">CONTACTO</a></li>
-        <li><a href="locales">LOCALES</a></li>
-        <li><a href="#">Bienvenida/o {{user}}</a></li>
+        <li *ngIf="isLoggedIn() == true"><a href="#">Bienvenida/o {{user}}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
-                <li><a (click)="logout()" style="cursor: pointer;" *ngIf="user">Logout</a></li>
+                <li><a (click)="logout()" style="cursor: pointer;" *ngIf="isLoggedIn() == true">Logout</a></li>
             </ul>
   
     </div>
